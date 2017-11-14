@@ -25,11 +25,11 @@ export class SearchComponent implements OnInit {
   }
   updateRequiedPath(message){
     var req='';
-    if(typeof(message)==undefined){
-    for(var xx=0; xx<(this.rootValue.length-1); xx++){
-      req+='/'+this.rootValue[xx]+'/'+this.leafValue+', ';
-    }
-    req+='/'+this.rootValue[this.rootValue.length-1]+'/'+this.leafValue;
+    if(typeof(message)=="undefined"){
+      for(var xx=0; xx<(this.rootValue.length-1); xx++){
+        req+='/'+this.rootValue[xx]+'/'+this.leafValue+', ';
+      }
+      req+='/'+this.rootValue[this.rootValue.length-1]+'/'+this.leafValue;
     }else{
       req=message;
     }
@@ -39,8 +39,8 @@ export class SearchComponent implements OnInit {
 
   drawTree(){
     if(this.treeObject){
-    debugger;
-      this.listTree='<ul class="treeSetRoot">';
+      this.listTree='<h4>Tree from lookup</h4>';
+      this.listTree+='<ul class="treeSetRoot">';
       for(var key in this.treeObject){
         var childValues=this.treeObject[key];
         var classToAdd='';
@@ -55,6 +55,8 @@ export class SearchComponent implements OnInit {
         for(var ll=0; ll<childValues.length; ll++){
           if(this.leafValue==childValues[ll]){
             classToAdd="foundChild";
+          }else{
+            classToAdd="baseColor";
           }
           this.listTree+='<li class="'+classToAdd+'">'+childValues[ll]+'</li>';
           classToAdd='';
