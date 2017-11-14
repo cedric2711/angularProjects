@@ -1,0 +1,9 @@
+<div class="row">
+  <input id="searchField" type="search" placeholder="Search" class="form-control" (input)="onSearchChange($event)">
+  <hr>
+  <h4>Tree Path:</h4>
+  <div id="pathToDisplay" [class]="textClass">{{requiedPathValue}}</div>
+  <hr>
+  <div id="treeComponent">
+  </div>
+</div>
